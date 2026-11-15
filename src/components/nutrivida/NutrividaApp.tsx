@@ -35,6 +35,7 @@ import { ServiceModal } from './ServiceModal';
 import { GalleryLightbox } from './GalleryLightbox';
 import { ContactForm } from './ContactForm';
 import { MobileBottomBar } from './MobileBottomBar';
+import { AmbientLayer, CinematicIntro, CinematicMarquee } from './CinematicLayer';
 
 const CATEGORIES: ServiceCategory[] = ['Todos', 'Nutrição', 'Massoterapia', 'Integrado'];
 
@@ -79,10 +80,12 @@ export function NutrividaApp() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div id="topo" className="min-h-screen bg-[#090b10] pb-20 text-[#f3f4f6] md:pb-0">
+      <div id="topo" className="relative min-h-screen bg-transparent pb-20 text-[#f3f4f6] md:pb-0">
+        <CinematicIntro />
+        <AmbientLayer />
         <Header />
 
-        <main>
+        <main className="relative z-10">
           {/* 1. Hero de Alto Impacto com Profundidade Perceptiva */}
           <section
             ref={heroSectionRef}
@@ -110,7 +113,7 @@ export function NutrividaApp() {
                     </p>
 
                     <h1
-                      className="text-balance font-extrabold tracking-tight text-[#f3f4f6]"
+                      className="cine-headline text-balance font-extrabold tracking-tight"
                       style={{ fontSize: 'clamp(2.25rem, 4.1vw, 3.65rem)', lineHeight: 1.06 }}
                     >
                       Cuidado alimentar e alívio corporal com precisão clínica.
@@ -225,6 +228,8 @@ export function NutrividaApp() {
           </section>
 
           {/* 2. Apresentação dos Principais Produtos e Serviços */}
+          <CinematicMarquee />
+
           <section id="servicos" className="border-b border-white/[0.08] py-16 lg:py-24">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
               <motion.div
