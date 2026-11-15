@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
@@ -47,39 +48,39 @@ export function GalleryLightbox({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
-          className="fixed inset-0 z-50 flex flex-col justify-between bg-black/94 p-4 backdrop-blur-xl sm:p-6"
+          className="fixed inset-0 z-50 flex flex-col justify-between bg-overlay/94 p-4 backdrop-blur-xl sm:p-6"
           role="dialog"
           aria-modal="true"
           aria-label="Galeria de imagens Nutrivida"
           onClick={onClose}
         >
           <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
-            <span className="tabular-nums text-sm font-medium text-[#f3f4f6]/75">
+            <span className="tabular-nums text-sm font-medium text-foreground/75">
               {String(activeIndex + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
             </span>
 
-            <button
+            <Button variant="editorial"
               type="button"
               onClick={onClose}
               aria-label="Fechar visualização ampliada"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 bg-[#141822] text-[#f3f4f6] transition-colors duration-150 hover:border-[#d4af37] hover:text-[#d4af37]"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border/15 bg-card text-foreground transition-colors duration-150 hover:border-primary hover:text-primary"
             >
               <X className="h-5 w-5" />
-            </button>
+            </Button>
           </div>
 
           <div
             className="mx-auto flex w-full max-w-5xl flex-1 items-center justify-center gap-3 py-4 sm:gap-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
+            <Button variant="editorial"
               type="button"
               onClick={() => onChangeIndex(prevIndex)}
               aria-label="Foto anterior"
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-[#141822] text-[#f3f4f6] transition-colors duration-150 hover:border-[#d4af37] hover:text-[#d4af37]"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border/15 bg-card text-foreground transition-colors duration-150 hover:border-primary hover:text-primary"
             >
               <ChevronLeft className="h-5 w-5" />
-            </button>
+            </Button>
 
             <AnimatePresence mode="wait">
               <motion.div
@@ -88,7 +89,7 @@ export function GalleryLightbox({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.985 }}
                 transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-                className="surface-specular flex max-h-[72vh] w-full flex-col overflow-hidden rounded-xl border border-white/[0.12] bg-[#141822]"
+                className="surface-specular flex max-h-[72vh] w-full flex-col overflow-hidden rounded-lg border border-border/[0.12] bg-card"
               >
                 <ResilientImage
                   src={current.src}
@@ -96,21 +97,21 @@ export function GalleryLightbox({
                   fallbackTitle={current.title}
                   className="max-h-[58vh] w-full object-cover"
                 />
-                <div className="border-t border-white/[0.08] p-4 sm:px-6 sm:py-4">
-                  <p className="text-base font-semibold text-[#f3f4f6]">{current.title}</p>
-                  <p className="mt-1 text-sm text-[#f3f4f6]/70">{current.caption}</p>
+                <div className="border-t border-border/[0.08] p-4 sm:px-6 sm:py-4">
+                  <p className="text-base font-semibold text-foreground">{current.title}</p>
+                  <p className="mt-1 text-sm text-foreground/70">{current.caption}</p>
                 </div>
               </motion.div>
             </AnimatePresence>
 
-            <button
+            <Button variant="editorial"
               type="button"
               onClick={() => onChangeIndex(nextIndex)}
               aria-label="Próxima foto"
-              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-[#141822] text-[#f3f4f6] transition-colors duration-150 hover:border-[#d4af37] hover:text-[#d4af37]"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border/15 bg-card text-foreground transition-colors duration-150 hover:border-primary hover:text-primary"
             >
               <ChevronRight className="h-5 w-5" />
-            </button>
+            </Button>
           </div>
 
           <div
@@ -118,15 +119,15 @@ export function GalleryLightbox({
             onClick={(e) => e.stopPropagation()}
           >
             {GALLERY_ITEMS.map((item, idx) => (
-              <button
+              <Button variant="editorial"
                 key={item.src}
                 type="button"
                 onClick={() => onChangeIndex(idx)}
                 aria-label={`Ver imagem ${idx + 1}: ${item.title}`}
                 className={`h-12 w-16 shrink-0 overflow-hidden rounded-md border transition-opacity duration-150 ${
                   idx === activeIndex
-                    ? 'border-[#d4af37] opacity-100'
-                    : 'border-white/15 opacity-55 hover:opacity-90'
+                    ? 'border-primary opacity-100'
+                    : 'border-border/15 opacity-55 hover:opacity-90'
                 }`}
               >
                 <ResilientImage
@@ -134,7 +135,7 @@ export function GalleryLightbox({
                   alt={item.alt}
                   className="h-full w-full object-cover"
                 />
-              </button>
+              </Button>
             ))}
           </div>
         </motion.div>

@@ -25,14 +25,14 @@ export function SpotlightCard({ children, className = '' }: SpotlightCardProps) 
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setCoords((prev) => ({ ...prev, active: false }))}
-      className={`surface-specular relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#141822] transition-colors duration-200 hover:border-white/[0.16] ${className}`}
+      className={`surface-specular spotlight-card relative overflow-hidden rounded-lg border border-border bg-card transition-colors duration-200 hover:border-border/[0.16] ${className}`}
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 transition-opacity duration-200"
         style={{
           opacity: coords.active ? 1 : 0,
-          background: `radial-gradient(420px circle at ${coords.x}px ${coords.y}px, rgba(212, 175, 55, 0.075), transparent 65%)`,
+          background: `radial-gradient(420px circle at ${coords.x}px ${coords.y}px, var(--spotlight), transparent 65%)`,
         }}
       />
       <div className="relative z-10 h-full">{children}</div>
