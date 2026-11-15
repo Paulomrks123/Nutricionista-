@@ -1,7 +1,8 @@
-import { motion, useReducedMotion } from 'motion/react';
+import { useSafeReducedMotion } from '@/hooks/use-safe-reduced-motion';
+import { motion } from 'motion/react';
 
 export function BotanicalSignature({ className = '' }: { className?: string }) {
-  const reduce = useReducedMotion();
+  const reduce = useSafeReducedMotion();
   return (
     <svg viewBox="0 0 160 180" fill="none" aria-hidden="true" className={`botanical-signature ${className}`}>
       <motion.path d="M80 165V90C80 50 112 24 142 18C144 58 128 93 80 105C32 93 16 58 18 18C48 24 80 50 80 90" initial={reduce ? false : { pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.8, ease: 'easeInOut' }} />

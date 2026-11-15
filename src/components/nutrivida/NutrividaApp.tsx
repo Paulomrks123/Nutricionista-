@@ -1,10 +1,10 @@
+import { useSafeReducedMotion } from '@/hooks/use-safe-reduced-motion';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import {
   AnimatePresence,
   MotionConfig,
   motion,
-  useReducedMotion,
 } from 'motion/react';
 import {
   ArrowUpRight,
@@ -43,7 +43,7 @@ const MotionButton = motion.create(Button);
 const CATEGORIES: ServiceCategory[] = ['Todos', 'Nutrição', 'Massoterapia', 'Integrado'];
 
 export function NutrividaApp() {
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion = useSafeReducedMotion();
   const [selectedCategory, setSelectedCategory] = useState<ServiceCategory>('Todos');
   const [activeService, setActiveService] = useState<ServiceItem | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);

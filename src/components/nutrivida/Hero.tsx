@@ -1,5 +1,6 @@
+import { useSafeReducedMotion } from '@/hooks/use-safe-reduced-motion';
 import { useRef } from 'react';
-import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowDown, ArrowUpRight, Expand, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HERO_IMAGE, buildWhatsAppUrl } from '@/data/catalog';
@@ -7,7 +8,7 @@ import { BotanicalSignature } from './CinematicLayer';
 
 export function Hero({ onOpenGallery }: { onOpenGallery: () => void }) {
   const ref = useRef<HTMLElement>(null);
-  const reduced = useReducedMotion();
+  const reduced = useSafeReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 75]);
   return (
