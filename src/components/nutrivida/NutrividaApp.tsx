@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import {
   BUSINESS_NAME,
+  BUSINESS_ADDRESS,
+  BUSINESS_HOURS,
   DIFFERENTIALS,
   GALLERY_ITEMS,
   GOOGLE_MAPS_URL,
@@ -365,7 +367,7 @@ export function NutrividaApp() {
                             Endereço e Rota no Google Maps
                           </h3>
                           <p className="text-[15px] text-foreground/75">
-                            {BUSINESS_NAME} — Região Comercial.
+                            {BUSINESS_ADDRESS}
                           </p>
                           <a
                             href={GOOGLE_MAPS_URL}
@@ -387,10 +389,16 @@ export function NutrividaApp() {
                           <h3 className="text-base font-semibold text-foreground">
                             Horários de Atendimento
                           </h3>
-                          <p className="text-[15px] leading-relaxed text-foreground/75">
-                            Atendimento com agendamento prévio. Consulte os horários disponíveis na
-                            semana diretamente pelo WhatsApp.
-                          </p>
+                          <dl className="space-y-2 text-sm text-foreground/80">
+                            {BUSINESS_HOURS.map((hours) => (
+                              <div key={hours.days} className="flex flex-wrap justify-between gap-x-4 gap-y-1">
+                                <dt>{hours.days}</dt>
+                                <dd className="tabular-nums font-semibold">{hours.opens && hours.closes ? `${hours.opens}–${hours.closes}` : 'Fechado'}</dd>
+                              </div>
+                            ))}
+                          </dl>
+                          <p className="text-sm leading-relaxed text-foreground/75">Atendimento com agendamento prévio. Confirme disponibilidade e horários em feriados pelo WhatsApp.</p>
+                          <p className="text-xs text-muted-foreground">Horários informados no Google Maps.</p>
                         </div>
                       </div>
                     </SpotlightCard>
