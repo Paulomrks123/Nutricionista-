@@ -26,6 +26,7 @@ import {
   ServiceCategory,
   ServiceItem,
   buildWhatsAppUrl,
+  WHATSAPP_DISPLAY,
 } from '@/data/catalog';
 import { Header } from './Header';
 import { ResilientImage } from './ResilientImage';
@@ -558,6 +559,9 @@ export function NutrividaApp() {
                           <p className="text-[15px] text-[#f3f4f6]/75">
                             Solicite tabela completa de valores, formas de pagamento aceitas e
                             encaixes disponíveis.
+                          </p>
+                          <p className="text-base font-semibold tracking-wide text-[#f3f4f6]">
+                            {WHATSAPP_DISPLAY}
                           </p>
                           <a
                             href={buildWhatsAppUrl()}
