@@ -5,3 +5,4 @@
 - [x] Refinar acessibilidade, movimento reduzido e telas pequenas.
 - [x] Verificar agendamento, filtros, galeria, formulário, erros e testes.
 - [x] Conferir as informações da clínica no Google Maps e acrescentar apenas dados confirmados.
+- [ ] Substituir as imagens por versões hiper-realistas e concluir a verificação visual.
