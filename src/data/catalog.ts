@@ -1,7 +1,15 @@
 export const BUSINESS_NAME = 'Nutrivida Nutrição e Massoterapia';
 export const SHORT_BRAND = 'Nutrivida';
 export const GOOGLE_MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=Nutrivida%20nutri%C3%A7%C3%A3o%20e%20massoterapia';
+  'https://www.google.com/maps/search/?api=1&query=Nutrivida%20nutri%C3%A7%C3%A3o%20e%20massoterapia&query_place_id=ChIJhY24N7iBWZMRvj3sukyvaZs';
+
+// Public Google Maps listing, matched by the clinic's official phone, November 15, 2026.
+export const BUSINESS_ADDRESS = 'St. Central, projeção nº 01 — Gama, Brasília — DF, CEP 72405-526';
+export const BUSINESS_HOURS = [
+  { days: 'Segunda a sexta', opens: '08:00', closes: '17:00' },
+  { days: 'Sábado', opens: '08:00', closes: '12:00' },
+  { days: 'Domingo', opens: null, closes: null },
+] as const;
 
 export const WHATSAPP_NUMBER = '5561986580143';
 export const WHATSAPP_DISPLAY = '+55 61 98658-0143';

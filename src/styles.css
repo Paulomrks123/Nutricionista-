@@ -151,11 +151,12 @@
 #servicos [role="tab"] > span:first-child:not(:last-child) { border-radius: 3px; }
 .spotlight-card { box-shadow: var(--shadow-soft); }
 .service-card { border: 0; border-radius: 0; background: transparent; box-shadow: none; transition: transform .35s; }
-.service-card > div:last-child { display: flex; flex: 1; }
+.service-card > div:last-child { display: flex; flex: 1; flex-direction: column; }
 .service-card > div:last-child > div { width: 100%; }
 .service-card .aspect-\[16\/10\] { border-radius: 6px; }
 .service-card h3 { font-size: 23px; line-height: 1.32; }
 .service-card h3 button { font-size: inherit; font-weight: inherit; height: auto; padding: 0; display: block; border: 0; background: transparent; box-shadow: none; }
+.service-card h3 button:hover { color: var(--primary); }
 .service-card img { transition: transform .65s ease; }
 .service-card:hover img { transform: scale(1.035); }
 .service-card [class*="bg-gradient-to-t"] { display: none; }
@@ -172,6 +173,7 @@
 .planner-section .spotlight-card:last-child { background: var(--card); border-top: 3px solid var(--primary); padding: 28px; }
 .planner-section button { height: auto; text-wrap: wrap; }
 .planner-section button[aria-pressed="true"] { border-color: var(--primary); }
+.planner-section button.bg-primary { background: var(--primary); color: var(--primary-foreground); }
 .planner-section a { font-size: 12px; }
 #diferenciais .surface-specular { border: 0; border-radius: 50% 50% 4px 4px; }
 #diferenciais .surface-specular img { aspect-ratio: 4 / 5; }
@@ -227,7 +229,9 @@
   .hero-description { font-size: 13px; }
   .hero-actions { gap: 10px; margin-top: 26px; flex-direction: column; align-items: flex-start; }
   .hero-actions a { font-size: 12px; padding-inline: 18px; }
-  .hero-botanical { display: none; }
+  .hero-botanical { top: auto; bottom: 100px; right: 18px; width: 64px; height: 84px; opacity: .65; }
+  .hero-botanical .botanical-signature { width: 54px; height: 70px; }
+  .hero-botanical .botanical-orbit, .hero-botanical > span { display: none; }
   .hero-gallery { width: 44px; padding: 0; font-size: 0; gap: 0; }
   .hero-gallery svg { width: 17px; }
   .hero-bottom { margin-top: 24px; }

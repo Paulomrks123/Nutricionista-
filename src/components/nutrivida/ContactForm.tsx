@@ -209,7 +209,7 @@ export function ContactForm() {
         )}
       </div>
 
-      <Button variant="editorial"
+      <Button variant="metallic"
         type="submit"
         className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors duration-150 hover:bg-primary"
       >
