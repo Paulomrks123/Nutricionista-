@@ -151,11 +151,12 @@
 #servicos [role="tab"] > span:first-child:not(:last-child) { border-radius: 3px; }
 .spotlight-card { box-shadow: var(--shadow-soft); }
 .service-card { border: 0; border-radius: 0; background: transparent; box-shadow: none; transition: transform .35s; }
-.service-card > div:last-child { display: flex; flex: 1; }
+.service-card > div:last-child { display: flex; flex: 1; flex-direction: column; }
 .service-card > div:last-child > div { width: 100%; }
 .service-card .aspect-\[16\/10\] { border-radius: 6px; }
 .service-card h3 { font-size: 23px; line-height: 1.32; }
 .service-card h3 button { font-size: inherit; font-weight: inherit; height: auto; padding: 0; display: block; border: 0; background: transparent; box-shadow: none; }
+.service-card h3 button:hover { color: var(--primary); }
 .service-card img { transition: transform .65s ease; }
 .service-card:hover img { transform: scale(1.035); }
 .service-card [class*="bg-gradient-to-t"] { display: none; }
