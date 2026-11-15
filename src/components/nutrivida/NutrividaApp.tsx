@@ -559,6 +559,9 @@ export function NutrividaApp() {
                             Solicite tabela completa de valores, formas de pagamento aceitas e
                             encaixes disponíveis.
                           </p>
+                          <p className="text-base font-semibold tracking-wide text-[#f3f4f6]">
+                            {WHATSAPP_DISPLAY}
+                          </p>
                           <a
                             href={buildWhatsAppUrl()}
                             target="_blank"
