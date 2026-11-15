@@ -26,6 +26,7 @@ import {
   ServiceCategory,
   ServiceItem,
   buildWhatsAppUrl,
+  WHATSAPP_DISPLAY,
 } from '@/data/catalog';
 import { Header } from './Header';
 import { ResilientImage } from './ResilientImage';
