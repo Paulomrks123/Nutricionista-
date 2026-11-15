@@ -33,23 +33,24 @@
   --radius-xl: 8px;
   --shadow-soft: var(--shadow-soft);
 }
-:root {
-  --background: oklch(0.985 0.003 150);
-  --foreground: oklch(0.25 0.026 165);
-  --card: oklch(1 0 0);
-  --primary: oklch(0.42 0.071 166);
-  --primary-foreground: oklch(0.985 0.003 150);
-  --secondary: oklch(0.93 0.012 155);
-  --muted: oklch(0.955 0.009 160);
-  --muted-foreground: oklch(0.49 0.022 160);
-  --accent: oklch(0.93 0.024 158);
+:root, .dark {
+  color-scheme: dark;
+  --background: oklch(0.24 0.004 145);
+  --foreground: oklch(0.95 0.021 160);
+  --card: oklch(0.26 0.007 150);
+  --primary: oklch(0.78 0.063 163);
+  --primary-foreground: oklch(0.95 0.021 160);
+  --secondary: oklch(0.28 0.017 160);
+  --muted: oklch(0.27 0.015 160);
+  --muted-foreground: oklch(0.73 0.021 155);
+  --accent: oklch(0.32 0.027 160);
   --destructive: oklch(0.47 0.15 25);
-  --border: oklch(0.83 0.018 157);
+  --border: oklch(0.5 0.017 157);
   --overlay: oklch(0.13 0.014 165);
   --on-image: oklch(0.985 0.003 150);
   --image-muted: oklch(0.9 0.014 150);
-  --button-highlight: oklch(0.53 0.074 166);
-  --button-base: var(--primary);
+  --button-highlight: oklch(0.49 0.073 166);
+  --button-base: oklch(0.4 0.073 166);
   --button-shadow: oklch(0.32 0.046 166);
   --shine: oklch(1 0 0 / 0.22);
   --spotlight: oklch(0.65 0.06 166 / 0.1);
@@ -58,20 +59,6 @@
   --shadow-inset: inset 0 1px 1px var(--shine), inset 0 -2px 3px oklch(0.16 0.02 165 / 0.25);
   --hero-overlay: linear-gradient(90deg, oklch(0.12 0.02 165 / 0.91), oklch(0.12 0.02 165 / 0.69) 43%, oklch(0.12 0.02 165 / 0.04) 85%);
   --hero-bottom: linear-gradient(0deg, oklch(0.12 0.02 165 / 0.65), transparent 35%);
-}
-.dark {
-  --background: oklch(0.2 0.02 165);
-  --foreground: oklch(0.96 0.008 155);
-  --card: oklch(0.25 0.023 165);
-  --primary: oklch(0.78 0.07 163);
-  --primary-foreground: oklch(0.2 0.02 165);
-  --secondary: oklch(0.29 0.025 165);
-  --muted: oklch(0.27 0.02 165);
-  --muted-foreground: oklch(0.73 0.02 155);
-  --accent: oklch(0.32 0.03 165);
-  --border: oklch(0.48 0.02 165);
-  --button-highlight: oklch(0.83 0.07 163);
-  --button-shadow: oklch(0.63 0.07 163);
 }
 @layer base {
   * { border-color: var(--border); letter-spacing: 0; box-sizing: border-box; }
@@ -173,7 +160,7 @@
 .planner-section .spotlight-card:last-child { background: var(--card); border-top: 3px solid var(--primary); padding: 28px; }
 .planner-section button { height: auto; text-wrap: wrap; }
 .planner-section button[aria-pressed="true"] { border-color: var(--primary); }
-.planner-section button.bg-primary { background: var(--primary); color: var(--primary-foreground); }
+.planner-section button.bg-primary { background: var(--button-base); color: var(--primary-foreground); }
 .planner-section a { font-size: 12px; }
 #diferenciais .surface-specular { border: 0; border-radius: 50% 50% 4px 4px; }
 #diferenciais .surface-specular img { aspect-ratio: 4 / 5; }
