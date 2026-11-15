@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { GALLERY_ITEMS } from '@/data/catalog';
 import { ResilientImage } from './ResilientImage';
+import { useDialogFocus } from '@/hooks/use-dialog-focus';
 
 interface GalleryLightboxProps {
   activeIndex: number | null;
@@ -17,6 +18,7 @@ export function GalleryLightbox({
   onClose,
 }: GalleryLightboxProps) {
   const total = GALLERY_ITEMS.length;
+  useDialogFocus(activeIndex !== null, 'Galeria de imagens Nutrivida');
 
   useEffect(() => {
     if (activeIndex === null) return;
@@ -84,7 +86,7 @@ export function GalleryLightbox({
 
             <AnimatePresence mode="wait">
               <motion.div
-                key={current.src}
+                key={activeIndex}
                 initial={{ opacity: 0, scale: 0.985 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.985 }}
@@ -120,7 +122,7 @@ export function GalleryLightbox({
           >
             {GALLERY_ITEMS.map((item, idx) => (
               <Button variant="editorial"
-                key={item.src}
+                key={`${item.src}-${idx}`}
                 type="button"
                 onClick={() => onChangeIndex(idx)}
                 aria-label={`Ver imagem ${idx + 1}: ${item.title}`}

@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import { X, ArrowUpRight, Maximize2, Check } from 'lucide-react';
 import { ServiceItem, buildWhatsAppUrl } from '@/data/catalog';
 import { ResilientImage } from './ResilientImage';
+import { useDialogFocus } from '@/hooks/use-dialog-focus';
 
 interface ServiceModalProps {
   service: ServiceItem | null;
@@ -12,6 +13,7 @@ interface ServiceModalProps {
 }
 
 export function ServiceModal({ service, onClose, onOpenGallery }: ServiceModalProps) {
+  useDialogFocus(Boolean(service), 'service-modal-title');
   useEffect(() => {
     if (!service) return;
 

@@ -33,4 +33,5 @@ use the editor.
 - Keep the existing single-page catalog and WhatsApp flows; visual sections are anchors rather than new duplicate routes.
 - Express the clinic's visual system through semantic CSS tokens and shared Button variants so all tools and overlays remain consistent.
 - Use the existing Motion library for a botanical signature and scroll reveals, with reduced-motion alternatives; avoid new animation dependencies.
+- Keep modal keyboard focus and scroll locking in the shared dialog-focus hook to preserve accessible gallery and service navigation.
 <!-- AGENT-MEMORY:END -->
