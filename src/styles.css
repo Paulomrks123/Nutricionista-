@@ -136,6 +136,7 @@
 #servicos [role="tablist"] { background: transparent; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 0 0 7px; }
 #servicos [role="tab"] { font-size: 12px; padding-inline: 13px; border: 0; box-shadow: none; }
 #servicos [role="tab"] > span:first-child:not(:last-child) { border-radius: 3px; }
+#servicos [role="tab"] > span.bg-primary { background: var(--button-base); }
 .spotlight-card { box-shadow: var(--shadow-soft); }
 .service-card { border: 0; border-radius: 0; background: transparent; box-shadow: none; transition: transform .35s; }
 .service-card > div:last-child { display: flex; flex: 1; flex-direction: column; }
