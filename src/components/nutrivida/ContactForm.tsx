@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { FormEvent, useState } from 'react';
 import { ArrowUpRight, CheckCircle2, AlertCircle } from 'lucide-react';
 import { SERVICES_CATALOG, buildWhatsAppUrl } from '@/data/catalog';
@@ -12,7 +13,7 @@ interface FormState {
 const INITIAL_STATE: FormState = {
   name: '',
   phone: '',
-  service: SERVICES_CATALOG[0]!.title,
+  service: 'Avaliação Nutricional e Plano Alimentar',
   message: '',
 };
 
@@ -64,38 +65,37 @@ export function ContactForm() {
       <div
         role="status"
         aria-live="polite"
-        className="flex flex-col justify-between gap-6 rounded-xl border border-white/[0.08] bg-[#141822] p-6 sm:p-8"
+        className="flex flex-col justify-between gap-6 rounded-lg border border-border/[0.08] bg-card p-6 sm:p-8"
       >
         <div className="space-y-4">
-          <div className="flex items-center gap-3 text-[#d4af37]">
+          <div className="flex items-center gap-3 text-primary">
             <CheckCircle2 className="h-6 w-6 shrink-0" aria-hidden="true" />
-            <h3 className="text-xl font-bold text-[#f3f4f6]">Mensagem recebida com sucesso!</h3>
+            <h3 className="text-xl font-bold text-foreground">Sua mensagem está pronta!</h3>
           </div>
-          <p className="text-[15px] leading-relaxed text-[#f3f4f6]/80">
+          <p className="text-[15px] leading-relaxed text-foreground/80">
             Obrigado, {submittedData.name}. Seus dados sobre{' '}
-            <span className="font-semibold text-[#f3f4f6]">{submittedData.service}</span> foram
-            registrados. Para resposta imediata sobre valores e horários disponíveis, envie sua
+            <span className="font-semibold text-foreground">{submittedData.service}</span> estão prontos para envio. Para consultar sobre valores e horários disponíveis, envie sua
             solicitação diretamente para o nosso WhatsApp:
           </p>
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row">
-          <a
+          <Button asChild variant="metallic"><a
             href={whatsappHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-[#d4af37] px-5 py-3 text-sm font-semibold text-[#090b10] transition-colors duration-150 hover:bg-[#e2c155]"
+            className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors duration-150 hover:bg-primary"
           >
             <span>Enviar agora pelo WhatsApp</span>
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-          <button
+          </a></Button>
+          <Button variant="editorial"
             type="button"
             onClick={handleReset}
-            className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-white/[0.12] px-5 py-2.5 text-sm font-medium text-[#f3f4f6]/80 transition-colors duration-150 hover:border-white/30 hover:text-[#f3f4f6]"
+            className="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-border/[0.12] px-5 py-2.5 text-sm font-medium text-foreground/80 transition-colors duration-150 hover:border-border/30 hover:text-foreground"
           >
             Enviar outra mensagem
-          </button>
+          </Button>
         </div>
       </div>
     );
@@ -105,20 +105,20 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="space-y-5 rounded-xl border border-white/[0.08] bg-[#141822] p-6 sm:p-8"
+      className="space-y-5 rounded-lg border border-border/[0.08] bg-card p-6 sm:p-8"
     >
       <div className="space-y-1">
-        <h3 className="text-xl font-bold tracking-tight text-[#f3f4f6]">
+        <h3 className="text-xl font-bold tracking-normal text-foreground">
           Solicite horários ou tabela de valores
         </h3>
-        <p className="text-[15px] text-[#f3f4f6]/70">
-          Preencha os campos abaixo para registrar seu interesse ou iniciar o contato direto.
+        <p className="text-[15px] text-foreground/70">
+          Conte-nos sobre o cuidado que você procura.
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-1.5">
-          <label htmlFor="contact-name" className="block text-sm font-medium text-[#f3f4f6]/90">
+          <label htmlFor="contact-name" className="block text-sm font-medium text-foreground/90">
             Nome completo
           </label>
           <input
@@ -131,10 +131,10 @@ export function ContactForm() {
             placeholder="Como gostaria de ser chamado(a)"
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? 'error-name' : undefined}
-            className="min-h-[44px] w-full rounded-lg border border-white/[0.12] bg-[#090b10] px-3.5 py-2.5 text-[15px] text-[#f3f4f6] placeholder:text-[#f3f4f6]/35 transition-colors duration-150 focus:border-[#d4af37] focus:outline-none"
+            className="min-h-[44px] w-full rounded-lg border border-border/[0.12] bg-background px-3.5 py-2.5 text-[15px] text-foreground placeholder:text-foreground/35 transition-colors duration-150 focus:border-primary focus:outline-none"
           />
           {errors.name && (
-            <p id="error-name" className="flex items-center gap-1.5 text-xs text-amber-300">
+            <p id="error-name" className="flex items-center gap-1.5 text-xs text-destructive">
               <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
               <span>{errors.name}</span>
             </p>
@@ -142,7 +142,7 @@ export function ContactForm() {
         </div>
 
         <div className="space-y-1.5">
-          <label htmlFor="contact-phone" className="block text-sm font-medium text-[#f3f4f6]/90">
+          <label htmlFor="contact-phone" className="block text-sm font-medium text-foreground/90">
             Telefone / WhatsApp
           </label>
           <input
@@ -155,10 +155,10 @@ export function ContactForm() {
             placeholder="(00) 00000-0000"
             aria-invalid={Boolean(errors.phone)}
             aria-describedby={errors.phone ? 'error-phone' : undefined}
-            className="min-h-[44px] w-full rounded-lg border border-white/[0.12] bg-[#090b10] px-3.5 py-2.5 text-[15px] text-[#f3f4f6] placeholder:text-[#f3f4f6]/35 transition-colors duration-150 focus:border-[#d4af37] focus:outline-none"
+            className="min-h-[44px] w-full rounded-lg border border-border/[0.12] bg-background px-3.5 py-2.5 text-[15px] text-foreground placeholder:text-foreground/35 transition-colors duration-150 focus:border-primary focus:outline-none"
           />
           {errors.phone && (
-            <p id="error-phone" className="flex items-center gap-1.5 text-xs text-amber-300">
+            <p id="error-phone" className="flex items-center gap-1.5 text-xs text-destructive">
               <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
               <span>{errors.phone}</span>
             </p>
@@ -167,7 +167,7 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-1.5">
-        <label htmlFor="contact-service" className="block text-sm font-medium text-[#f3f4f6]/90">
+        <label htmlFor="contact-service" className="block text-sm font-medium text-foreground/90">
           Serviço de interesse
         </label>
         <select
@@ -175,7 +175,7 @@ export function ContactForm() {
           name="service"
           value={form.service}
           onChange={(e) => setForm((prev) => ({ ...prev, service: e.target.value }))}
-          className="min-h-[44px] w-full rounded-lg border border-white/[0.12] bg-[#090b10] px-3.5 py-2.5 text-[15px] text-[#f3f4f6] transition-colors duration-150 focus:border-[#d4af37] focus:outline-none"
+          className="min-h-[44px] w-full rounded-lg border border-border/[0.12] bg-background px-3.5 py-2.5 text-[15px] text-foreground transition-colors duration-150 focus:border-primary focus:outline-none"
         >
           {SERVICES_CATALOG.map((service) => (
             <option key={service.id} value={service.title}>
@@ -187,7 +187,7 @@ export function ContactForm() {
       </div>
 
       <div className="space-y-1.5">
-        <label htmlFor="contact-message" className="block text-sm font-medium text-[#f3f4f6]/90">
+        <label htmlFor="contact-message" className="block text-sm font-medium text-foreground/90">
           Mensagem ou preferência de turno
         </label>
         <textarea
@@ -199,22 +199,22 @@ export function ContactForm() {
           placeholder="Informe seu objetivo ou melhor turno para atendimento (manhã, tarde ou noite)."
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? 'error-message' : undefined}
-          className="w-full rounded-lg border border-white/[0.12] bg-[#090b10] px-3.5 py-2.5 text-[15px] text-[#f3f4f6] placeholder:text-[#f3f4f6]/35 transition-colors duration-150 focus:border-[#d4af37] focus:outline-none"
+          className="w-full rounded-lg border border-border/[0.12] bg-background px-3.5 py-2.5 text-[15px] text-foreground placeholder:text-foreground/35 transition-colors duration-150 focus:border-primary focus:outline-none"
         />
         {errors.message && (
-          <p id="error-message" className="flex items-center gap-1.5 text-xs text-amber-300">
+          <p id="error-message" className="flex items-center gap-1.5 text-xs text-destructive">
             <AlertCircle className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
             <span>{errors.message}</span>
           </p>
         )}
       </div>
 
-      <button
+      <Button variant="editorial"
         type="submit"
-        className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-[#d4af37] px-6 py-3 text-sm font-semibold text-[#090b10] transition-colors duration-150 hover:bg-[#e2c155]"
+        className="inline-flex min-h-[44px] w-full items-center justify-center rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors duration-150 hover:bg-primary"
       >
         Enviar solicitação de contato
-      </button>
+      </Button>
     </form>
   );
 }

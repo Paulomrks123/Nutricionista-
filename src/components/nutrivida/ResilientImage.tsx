@@ -24,13 +24,13 @@ export function ResilientImage({
         role="img"
         aria-label={alt}
         onClick={onClick}
-        className={`flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#141822] via-[#111827] to-[#090b10] p-6 text-center ${className}`}
+        className={`flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-card via-muted to-background p-6 text-center ${className}`}
       >
-        <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-[#1f2937]/70 text-[#d4af37]">
+        <div className="flex h-11 w-11 items-center justify-center rounded-full border border-border/10 bg-muted/70 text-primary">
           <ImageOff className="h-5 w-5" aria-hidden="true" />
         </div>
         {fallbackTitle && (
-          <p className="max-w-xs text-sm font-medium text-[#f3f4f6]/80">{fallbackTitle}</p>
+          <p className="max-w-xs text-sm font-medium text-foreground/80">{fallbackTitle}</p>
         )}
       </div>
     );
@@ -45,6 +45,7 @@ export function ResilientImage({
       onClick={onClick}
       className={className}
       loading="lazy"
+      decoding="async"
     />
   );
 }

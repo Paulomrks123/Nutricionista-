@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUpRight, Check, SlidersHorizontal } from 'lucide-react';
@@ -80,36 +81,38 @@ const INTENSITIES = [
 ] as const;
 
 export function InteractivePlanner() {
-  const [selectedGoalId, setSelectedGoalId] = useState<string>(GOALS[0]!.id);
+  const [selectedGoalId, setSelectedGoalId] = useState<string>('nutricao');
   const [selectedWindow, setSelectedWindow] = useState<(typeof WINDOWS)[number]>('Horário flexível');
   const [selectedApproach, setSelectedApproach] =
     useState<(typeof INTENSITIES)[number]>('Foco direto em resultado prático');
 
-  const activeGoal = GOALS.find((goal) => goal.id === selectedGoalId) ?? GOALS[0]!;
+  const activeGoal = GOALS.find((goal) => goal.id === selectedGoalId) ?? GOALS[0];
+
+  if (!activeGoal) return null;
 
   const customNote = `Objetivo principal: ${activeGoal.label} | Preferência de turno: ${selectedWindow} | Perfil: ${selectedApproach}`;
   const whatsappHref = buildWhatsAppUrl(activeGoal.serviceTitle, customNote);
 
   return (
-    <section aria-labelledby="planner-heading" className="border-b border-white/[0.08] py-16 lg:py-24">
+    <section aria-labelledby="planner-heading" id="planejador" className="planner-section border-b border-border/[0.08] py-16 lg:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div className="max-w-2xl space-y-3">
-            <p className="text-sm font-medium text-[#d4af37]">Direcionamento de Atendimento</p>
+            <p className="text-sm font-medium text-primary">Direcionamento de Atendimento</p>
             <h2
               id="planner-heading"
-              className="text-balance text-3xl font-bold tracking-tight text-[#f3f4f6] sm:text-4xl"
+              className="text-balance text-3xl font-bold tracking-normal text-foreground sm:text-4xl"
             >
-              Configure seu atendimento ideal em segundos
+              Seu cuidado, no seu ritmo
             </h2>
-            <p className="text-[15px] leading-relaxed text-[#f3f4f6]/75">
+            <p className="text-[15px] leading-relaxed text-foreground/75">
               Selecione seu objetivo e preferência de turno para visualizar o formato indicado e
               enviar a solicitação pronta diretamente para o WhatsApp da equipe.
             </p>
           </div>
 
-          <div className="inline-flex items-center gap-2 text-sm text-[#f3f4f6]/60">
-            <SlidersHorizontal className="h-4 w-4 text-[#d4af37]" aria-hidden="true" />
+          <div className="inline-flex items-center gap-2 text-sm text-foreground/60">
+            <SlidersHorizontal className="h-4 w-4 text-primary" aria-hidden="true" />
             <span>Pré-agendamento sem compromisso</span>
           </div>
         </div>
@@ -119,81 +122,81 @@ export function InteractivePlanner() {
           <SpotlightCard className="p-6 sm:p-8 lg:col-span-7">
             <div className="space-y-8">
               <div className="space-y-3">
-                <p className="text-sm font-semibold text-[#f3f4f6]">
+                <p className="text-sm font-semibold text-foreground">
                   1. Qual é a sua prioridade neste momento?
                 </p>
                 <div className="grid gap-2.5 sm:grid-cols-2">
                   {GOALS.map((goal) => {
                     const isSelected = goal.id === selectedGoalId;
                     return (
-                      <button
+                      <Button variant="editorial"
                         key={goal.id}
                         type="button"
                         onClick={() => setSelectedGoalId(goal.id)}
                         aria-pressed={isSelected}
                         className={`relative flex min-h-[52px] items-center justify-between gap-3 rounded-lg border px-4 py-3 text-left text-[15px] font-medium transition-colors duration-150 ${
                           isSelected
-                            ? 'border-[#d4af37] bg-[#d4af37]/12 text-[#f3f4f6]'
-                            : 'border-white/[0.08] bg-[#090b10]/70 text-[#f3f4f6]/75 hover:border-white/25 hover:text-[#f3f4f6]'
+                            ? 'border-primary bg-primary/12 text-foreground'
+                            : 'border-border/[0.08] bg-background/70 text-foreground/75 hover:border-border/25 hover:text-foreground'
                         }`}
                       >
                         <span>{goal.label}</span>
                         {isSelected && (
-                          <Check className="h-4 w-4 shrink-0 text-[#d4af37]" aria-hidden="true" />
+                          <Check className="h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                         )}
-                      </button>
+                      </Button>
                     );
                   })}
                 </div>
               </div>
 
-              <div className="space-y-3 border-t border-white/[0.08] pt-6">
-                <p className="text-sm font-semibold text-[#f3f4f6]">
+              <div className="space-y-3 border-t border-border/[0.08] pt-6">
+                <p className="text-sm font-semibold text-foreground">
                   2. Preferência de turno para consulta ou sessão
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {WINDOWS.map((win) => {
                     const isSelected = win === selectedWindow;
                     return (
-                      <button
+                      <Button variant="editorial"
                         key={win}
                         type="button"
                         onClick={() => setSelectedWindow(win)}
                         aria-pressed={isSelected}
-                        className={`min-h-[44px] whitespace-nowrap shrink-0 rounded-lg border px-4 py-2 text-sm font-medium transition-colors duration-150 ${
+                        className={`min-h-[44px] rounded-lg border px-4 py-2 text-sm font-medium transition-colors duration-150 ${
                           isSelected
-                            ? 'border-[#d4af37] bg-[#d4af37] font-semibold text-[#090b10]'
-                            : 'border-white/[0.08] bg-[#090b10]/70 text-[#f3f4f6]/75 hover:border-white/25 hover:text-[#f3f4f6]'
+                            ? 'border-primary bg-primary font-semibold text-primary-foreground'
+                            : 'border-border/[0.08] bg-background/70 text-foreground/75 hover:border-border/25 hover:text-foreground'
                         }`}
                       >
                         {win}
-                      </button>
+                      </Button>
                     );
                   })}
                 </div>
               </div>
 
-              <div className="space-y-3 border-t border-white/[0.08] pt-6">
-                <p className="text-sm font-semibold text-[#f3f4f6]">
+              <div className="space-y-3 border-t border-border/[0.08] pt-6">
+                <p className="text-sm font-semibold text-foreground">
                   3. Estilo de acompanhamento preferido
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {INTENSITIES.map((item) => {
                     const isSelected = item === selectedApproach;
                     return (
-                      <button
+                      <Button variant="editorial"
                         key={item}
                         type="button"
                         onClick={() => setSelectedApproach(item)}
                         aria-pressed={isSelected}
-                        className={`min-h-[44px] whitespace-nowrap shrink-0 rounded-lg border px-4 py-2 text-sm font-medium transition-colors duration-150 ${
+                        className={`min-h-[44px] rounded-lg border px-4 py-2 text-sm font-medium transition-colors duration-150 ${
                           isSelected
-                            ? 'border-[#d4af37] bg-[#d4af37]/15 text-[#d4af37]'
-                            : 'border-white/[0.08] bg-[#090b10]/70 text-[#f3f4f6]/75 hover:border-white/25 hover:text-[#f3f4f6]'
+                            ? 'border-primary bg-primary/15 text-primary'
+                            : 'border-border/[0.08] bg-background/70 text-foreground/75 hover:border-border/25 hover:text-foreground'
                         }`}
                       >
                         {item}
-                      </button>
+                      </Button>
                     );
                   })}
                 </div>
@@ -214,30 +217,30 @@ export function InteractivePlanner() {
               >
                 <div className="space-y-5">
                   <div className="space-y-1.5">
-                    <p className="text-xs font-medium text-[#d4af37]">
+                    <p className="text-xs font-medium text-primary">
                       Atendimento Recomendado · {selectedWindow}
                     </p>
-                    <h3 className="text-xl font-bold tracking-tight text-[#f3f4f6]">
+                    <h3 className="text-xl font-bold tracking-normal text-foreground">
                       {activeGoal.serviceTitle}
                     </h3>
                   </div>
 
-                  <p className="text-[15px] leading-relaxed text-[#f3f4f6]/80">
+                  <p className="text-[15px] leading-relaxed text-foreground/80">
                     {activeGoal.summary}
                   </p>
 
-                  <div className="space-y-2.5 border-t border-white/[0.08] pt-4">
-                    <p className="text-xs font-semibold text-[#f3f4f6]/60">
+                  <div className="space-y-2.5 border-t border-border/[0.08] pt-4">
+                    <p className="text-xs font-semibold text-foreground/60">
                       O que você recebe neste formato
                     </p>
                     <ul className="space-y-2">
                       {activeGoal.deliverables.map((item) => (
                         <li
                           key={item}
-                          className="flex items-start gap-2.5 text-[15px] leading-snug text-[#f3f4f6]/85"
+                          className="flex items-start gap-2.5 text-[15px] leading-snug text-foreground/85"
                         >
                           <Check
-                            className="mt-0.5 h-4 w-4 shrink-0 text-[#d4af37]"
+                            className="mt-0.5 h-4 w-4 shrink-0 text-primary"
                             aria-hidden="true"
                           />
                           <span>{item}</span>
@@ -246,25 +249,25 @@ export function InteractivePlanner() {
                     </ul>
                   </div>
 
-                  <div className="rounded-lg border border-white/[0.08] bg-[#090b10]/80 p-3.5">
-                    <p className="text-sm leading-relaxed text-[#f3f4f6]/70">
+                  <div className="rounded-lg border border-border/[0.08] bg-background/80 p-3.5">
+                    <p className="text-sm leading-relaxed text-foreground/70">
                       {activeGoal.preparation}
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-3 border-t border-white/[0.08] pt-5">
-                  <a
+                <div className="space-y-3 border-t border-border/[0.08] pt-5">
+                  <Button asChild variant="metallic"><a
                     href={whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-[#d4af37] px-5 py-3 text-[15px] font-semibold text-[#090b10] transition-colors duration-150 hover:bg-[#e2c155]"
+                    className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 text-[15px] font-semibold text-primary-foreground transition-colors duration-150 hover:bg-primary"
                   >
                     <span>Consultar Valores e Horários no WhatsApp</span>
                     <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  </a>
-                  <p className="text-center text-xs text-[#f3f4f6]/55">
-                    A mensagem já abre preenchida com suas preferências selecionadas.
+                  </a></Button>
+                  <p className="text-center text-xs text-foreground/55">
+                    Valores e disponibilidade confirmados pela equipe.
                   </p>
                 </div>
               </motion.div>
