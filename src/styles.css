@@ -273,3 +273,22 @@
   .spotlight-card > div[aria-hidden] { display: none; }
   .btn-metallic-3d:hover { transform: none; }
 }
+/* Impact layer: scroll-driven reveals, image wipes, shimmer and hover depth */
+@keyframes rise-in { from { opacity: 0; transform: translateY(60px) scale(.97); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes wipe-in { from { clip-path: inset(0 0 100% 0 round 6px); transform: scale(1.12); } to { clip-path: inset(0 0 0 0 round 6px); transform: none; } }
+@keyframes hero-title { from { opacity: 0; letter-spacing: .25em; filter: blur(12px); } to { opacity: 1; letter-spacing: 0; filter: none; } }
+@keyframes text-shimmer { to { background-position: 200% center; } }
+@keyframes float-y { 50% { transform: translateY(-14px) rotate(2deg); } }
+@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 var(--spotlight), var(--shadow-inset), var(--shadow-button); } 100% { box-shadow: 0 0 0 18px transparent, var(--shadow-inset), var(--shadow-button); } }
+.clinic-hero h1 { animation: hero-title 1.6s cubic-bezier(.2,.8,.2,1) both; }
+.clinic-hero h1 > span { background: linear-gradient(100deg, var(--on-image) 30%, var(--primary) 50%, var(--on-image) 70%); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: text-shimmer 6s linear infinite; }
+.dark .clinic-hero h1 > span, .clinic-hero h1 > span { --primary: oklch(0.82 0.08 163); }
+.hero-botanical .botanical-signature { animation: float-y 7s ease-in-out infinite; }
+.hero-actions .btn-metallic-3d { animation: pulse-ring 2.4s ease-out infinite; }
+.service-card, .process-grid button, #contato .spotlight-card, #diferenciais .surface-specular, .planner-section .spotlight-card, .nutrivida-app h2 { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; }
+.service-card:hover { transform: translateY(-8px); }
+.process-grid button:hover { transform: translateX(6px); }
+@supports (animation-timeline: view()) {
+  .nutrivida-app h2, .service-card, .process-grid button, #contato .spotlight-card, .planner-section .spotlight-card, #diferenciais [class*="divide-y"] > div { animation: rise-in linear both; animation-timeline: view(); animation-range: entry 0% cover 28%; }
+  .service-card img, #diferenciais .surface-specular img { animation: wipe-in linear both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
+}
