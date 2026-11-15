@@ -283,7 +283,7 @@ export function NutrividaApp() {
                       key={service.id}
                       initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.98 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      exit={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.98 }}
+                      exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.98 }}
                       transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <SpotlightCard className="group flex h-full flex-col">
