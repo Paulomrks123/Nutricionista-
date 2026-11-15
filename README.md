@@ -1,26 +1,19 @@
-# Playful Possibility
+# Nutrivida — Nutrição e Massoterapia
 
-Crie esse projeto completo
+Site institucional da Nutrivida, com apresentação dos serviços, informações de atendimento e agendamento pelo WhatsApp.
 
-This project was built with [Lovable](https://lovable.dev).
+## Desenvolvimento
 
-**Live app**: https://playful-possibility.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/c839bfc2-33ae-4e30-bab4-156da31acbfc).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requisitos: Node.js e npm.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
+```
+
+Para gerar a versão de produção:
+
+```sh
+npm run build
+npm run preview
 ```
