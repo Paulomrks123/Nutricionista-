@@ -80,12 +80,12 @@ const INTENSITIES = [
 ] as const;
 
 export function InteractivePlanner() {
-  const [selectedGoalId, setSelectedGoalId] = useState<string>(GOALS[0].id);
+  const [selectedGoalId, setSelectedGoalId] = useState<string>(GOALS[0]!.id);
   const [selectedWindow, setSelectedWindow] = useState<(typeof WINDOWS)[number]>('Horário flexível');
   const [selectedApproach, setSelectedApproach] =
     useState<(typeof INTENSITIES)[number]>('Foco direto em resultado prático');
 
-  const activeGoal = GOALS.find((goal) => goal.id === selectedGoalId) ?? GOALS[0];
+  const activeGoal = GOALS.find((goal) => goal.id === selectedGoalId) ?? GOALS[0]!;
 
   const customNote = `Objetivo principal: ${activeGoal.label} | Preferência de turno: ${selectedWindow} | Perfil: ${selectedApproach}`;
   const whatsappHref = buildWhatsAppUrl(activeGoal.serviceTitle, customNote);

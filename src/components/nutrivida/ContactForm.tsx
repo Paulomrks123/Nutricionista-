@@ -12,7 +12,7 @@ interface FormState {
 const INITIAL_STATE: FormState = {
   name: '',
   phone: '',
-  service: SERVICES_CATALOG[0].title,
+  service: SERVICES_CATALOG[0]!.title,
   message: '',
 };
 
