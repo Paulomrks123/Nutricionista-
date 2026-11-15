@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+<!-- AGENT-MEMORY:BEGIN -->
+- Keep the existing single-page catalog and WhatsApp flows; visual sections are anchors rather than new duplicate routes.
+- Express the clinic's visual system through semantic CSS tokens and shared Button variants so all tools and overlays remain consistent.
+- Use the existing Motion library for a botanical signature and scroll reveals, with reduced-motion alternatives; avoid new animation dependencies.
+<!-- AGENT-MEMORY:END -->
