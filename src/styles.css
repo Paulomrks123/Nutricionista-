@@ -173,6 +173,7 @@
 .planner-section .spotlight-card:last-child { background: var(--card); border-top: 3px solid var(--primary); padding: 28px; }
 .planner-section button { height: auto; text-wrap: wrap; }
 .planner-section button[aria-pressed="true"] { border-color: var(--primary); }
+.planner-section button.bg-primary { background: var(--primary); color: var(--primary-foreground); }
 .planner-section a { font-size: 12px; }
 #diferenciais .surface-specular { border: 0; border-radius: 50% 50% 4px 4px; }
 #diferenciais .surface-specular img { aspect-ratio: 4 / 5; }
