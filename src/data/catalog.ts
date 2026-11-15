@@ -12,7 +12,7 @@ export function buildWhatsAppUrl(serviceName?: string, customNote?: string): str
     : 'Olá! Estava no site da Nutrivida Nutrição e Massoterapia e gostaria de consultar valores e horários disponíveis para agendamento.';
 
   const fullText = customNote ? `${baseGreeting}\n\nObservação: ${customNote}` : baseGreeting;
-  return `https://wa.me/?text=${encodeURIComponent(fullText)}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(fullText)}`;
 }
 
 export type ServiceCategory = 'Todos' | 'Nutrição' | 'Massoterapia' | 'Integrado';
