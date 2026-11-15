@@ -13,7 +13,7 @@ export function Hero({ onOpenGallery }: { onOpenGallery: () => void }) {
   const y = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 75]);
   return (
     <section ref={ref} className="clinic-hero">
-      <motion.img src={HERO_IMAGE.src} alt={HERO_IMAGE.alt} className="hero-photo" style={{ y }} fetchPriority="high" />
+      <motion.img src={HERO_IMAGE.src} alt={HERO_IMAGE.alt} width={1920} height={1024} className="hero-photo" style={{ y }} fetchPriority="high" />
       <div className="hero-shade" aria-hidden="true" />
       <div className="hero-content">
         <motion.div initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
@@ -25,7 +25,7 @@ export function Hero({ onOpenGallery }: { onOpenGallery: () => void }) {
             <Button asChild variant="editorial" className="hero-secondary"><a href="#servicos">Explorar atendimentos<ArrowDown /></a></Button>
           </div>
         </motion.div>
-        <div className="hero-bottom"><a href="#servicos" className="hero-scroll"><ArrowDown size={18} /><span>Seu cuidado começa aqui</span></a><Button variant="editorial" onClick={onOpenGallery} className="hero-gallery" aria-label="Abrir galeria de fotos do espaço"><Expand />Espaço Nutrivida</Button></div>
+        <div className="hero-bottom"><a href="#servicos" className="hero-scroll"><ArrowDown size={18} /><span>Seu cuidado começa aqui</span></a><Button variant="editorial" onClick={onOpenGallery} className="hero-gallery" aria-label="Abrir galeria de imagens"><Expand />Galeria Nutrivida</Button></div>
       </div>
       <div className="hero-botanical"><div className="botanical-orbit" /><BotanicalSignature /><span>Alimentar. Aliviar. Equilibrar.</span></div>
     </section>

@@ -1,3 +1,9 @@
+import clinicPhoto from '@/assets/clinic-photographic.jpg';
+import nutritionPhoto from '@/assets/nutrition-photographic.jpg';
+import massagePhoto from '@/assets/massage-photographic.jpg';
+import drainagePhoto from '@/assets/drainage-photographic.jpg';
+import consultationPhoto from '@/assets/consultation-photographic.jpg';
+
 export const BUSINESS_NAME = 'Nutrivida Nutrição e Massoterapia';
 export const SHORT_BRAND = 'Nutrivida';
 export const GOOGLE_MAPS_URL =
@@ -41,13 +47,13 @@ export interface ServiceItem {
 }
 
 export const HERO_IMAGE = {
-  src: '/images/hero_nutrivida_clinic_1794763404518.jpg',
-  alt: 'Sala de atendimento da Nutrivida Nutrição e Massoterapia com maca terapêutica, iluminação quente e frascos de óleos essenciais sobre madeira escura.',
+  src: clinicPhoto,
+  alt: 'Imagem ilustrativa de consultório com maca, poltrona verde e iluminação natural.',
 };
 
 export const METHOD_IMAGE = {
-  src: '/images/method_atendimento_integrado_1794763406806.jpg',
-  alt: 'Consultório acolhedor da Nutrivida durante atendimento individualizado de nutrição com material de avaliação e chá natural.',
+  src: consultationPhoto,
+  alt: 'Imagem ilustrativa de consulta nutricional com profissional e paciente discutindo um plano alimentar.',
 };
 
 export const SERVICES_CATALOG: ServiceItem[] = [
@@ -70,9 +76,9 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       'Lista de substituições práticas para trabalho e refeições fora de casa',
       'Orientações de acompanhamento e retorno conforme objetivo',
     ],
-    image: '/images/service_nutricao_clinica_1794763405239.jpg',
+    image: nutritionPhoto,
     imageAlt:
-      'Tigela cerâmica sobre pedra escura com vegetais frescos, grãos integrais, castanhas e frutas cítricas representando nutrição clínica equilibrada.',
+      'Imagem ilustrativa de refeição equilibrada com arroz integral, feijão, frango e vegetais frescos.',
   },
   {
     id: 'massoterapia-terapeutica',
@@ -93,9 +99,9 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       'Ambiente reservado com iluminação indireta e conforto térmico',
       'Indicação clara de frequência conforme necessidade muscular',
     ],
-    image: '/images/service_massoterapia_terapeutica_1794763405546.jpg',
+    image: massagePhoto,
     imageAlt:
-      'Pedras basálticas aquecidas, toalhas de linho escuras dobradas e frasco âmbar de óleo terapêutico sobre madeira.',
+      'Imagem ilustrativa de massagem terapêutica nas costas com paciente coberta por toalha.',
   },
   {
     id: 'drenagem-miofascial',
@@ -116,9 +122,9 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       'Indicado para praticantes de atividade física e longas jornadas em pé ou sentado',
       'Orientação pós-sessão para potencializar hidratação e recuperação',
     ],
-    image: '/images/service_drenagem_liberacao_1794763406059.jpg',
+    image: drainagePhoto,
     imageAlt:
-      'Maca de massoterapia em sala serena com toalhas dobradas e instrumentos de madeira para liberação miofascial.',
+      'Imagem ilustrativa de drenagem manual na perna em ambiente clínico.',
   },
   {
     id: 'programa-integrado',
@@ -139,9 +145,9 @@ export const SERVICES_CATALOG: ServiceItem[] = [
       'Acompanhamento contínuo ajustado à evolução de cada etapa',
       'Comunicação direta pelo WhatsApp para remarcações e dúvidas',
     ],
-    image: '/images/method_atendimento_integrado_1794763406806.jpg',
+    image: consultationPhoto,
     imageAlt:
-      'Atendimento consultivo em sala privativa da Nutrivida com anamnese nutricional e planejamento de cuidado integrado.',
+      'Imagem ilustrativa de atendimento nutricional individualizado e planejamento de cuidado.',
   },
 ];
 
@@ -149,14 +155,14 @@ export const GALLERY_ITEMS = [
   {
     src: HERO_IMAGE.src,
     alt: HERO_IMAGE.alt,
-    title: 'Ambiente de Atendimento Nutrivida',
-    caption: 'Espaço reservado com iluminação controlada para sessões de massoterapia e acolhimento.',
+    title: 'Cuidado e acolhimento',
+    caption: 'Imagem ilustrativa gerada por IA; não representa o espaço físico da clínica.',
   },
   ...SERVICES_CATALOG.map((item) => ({
     src: item.image,
     alt: item.imageAlt,
     title: item.title,
-    caption: item.shortDescription,
+    caption: `Imagem ilustrativa gerada por IA. ${item.shortDescription}`,
   })),
 ];
 
