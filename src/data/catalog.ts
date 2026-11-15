@@ -3,6 +3,9 @@ export const SHORT_BRAND = 'Nutrivida';
 export const GOOGLE_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Nutrivida%20nutri%C3%A7%C3%A3o%20e%20massoterapia';
 
+export const WHATSAPP_NUMBER = '5561986580143';
+export const WHATSAPP_DISPLAY = '+55 61 98658-0143';
+
 export function buildWhatsAppUrl(serviceName?: string, customNote?: string): string {
   const baseGreeting = serviceName
     ? `Olá! Estava no site da Nutrivida Nutrição e Massoterapia e gostaria de consultar valores e horários para: ${serviceName}.`
