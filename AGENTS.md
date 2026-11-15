@@ -30,6 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 <!-- AGENT-MEMORY:BEGIN -->
+- Render the theme class in the root document and declare CSS color-scheme explicitly so browser preferences cannot change the intended palette or flash a different theme.
 - Keep the existing single-page catalog and WhatsApp flows; visual sections are anchors rather than new duplicate routes.
 - Express the clinic's visual system through semantic CSS tokens and shared Button variants so all tools and overlays remain consistent.
 - Use the existing Motion library for a botanical signature and scroll reveals, with reduced-motion alternatives; avoid new animation dependencies.
