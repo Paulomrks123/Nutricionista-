@@ -290,11 +290,15 @@
 .btn-metallic-3d::after { display: none; }
 .nutrivida-app :is(a, button, input, select, textarea, [role="tab"]):focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 
-/* Remove o selo de edição injetado pelo ambiente Lovable, quando exposto no DOM. */
+/* Oculta o selo visual da Lovable caso seja injetado no aplicativo ou na prévia. */
 #lovable-badge,
 a#lovable-badge,
-[id="lovable-badge"] {
+[id="lovable-badge"],
+#lovable-badge-container,
+[data-lovable-badge],
+iframe[src*="lovable.dev"] {
   display: none !important;
   visibility: hidden !important;
+  opacity: 0 !important;
   pointer-events: none !important;
 }
