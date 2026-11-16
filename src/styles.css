@@ -62,7 +62,7 @@
 }
 @layer base {
   * { border-color: var(--border); letter-spacing: 0; box-sizing: border-box; }
-  html { font-family: var(--font-sans); background: var(--background); color: var(--foreground); scroll-behavior: smooth; scroll-padding-top: 100px; }
+  html { font-family: var(--font-sans); background: var(--background); color: var(--foreground); scroll-behavior: smooth; scroll-padding-top: 0; }
   body { margin: 0; background: var(--background); color: var(--foreground); }
   button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
   button, a { touch-action: manipulation; }
@@ -75,6 +75,8 @@
 .tabular-nums { font-variant-numeric: tabular-nums; }
 .nutrivida-app { overflow-x: clip; }
 .nutrivida-app main > section:not(.clinic-hero) { position: relative; }
+/* Offset único para que as seções não fiquem escondidas sob o cabeçalho fixo. */
+.nutrivida-app main section[id] { scroll-margin-top: 104px; }
 .nutrivida-app main > section:not(.clinic-hero) > div { max-width: 1280px; }
 .nutrivida-app h2 { font-family: var(--font-display); font-weight: 400; font-size: 46px; line-height: 1.13; }
 .nutrivida-app h3 { font-weight: 600; }
