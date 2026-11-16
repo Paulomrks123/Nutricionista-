@@ -770,3 +770,51 @@ iframe[src*="lovable.dev"] {
   .service-card h3,
   .process-grid button h3 { transition: none !important; }
 }
+
+
+/* PADRÃO GLOBAL: BOTÕES VERDE ESCURO METÁLICO */
+.nutrivida-app button,
+.nutrivida-app a.btn-metallic-3d,
+.nutrivida-app .hero-actions a,
+.nutrivida-app .fixed.bottom-0 a,
+.nutrivida-app .header-cta {
+  color: #fff !important;
+  background-color: #123f30 !important;
+  background-image: linear-gradient(145deg, #34765a 0%, #18523d 34%, #0d3b2c 68%, #08291f 100%) !important;
+  border: 1px solid #78a88d !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 28%),
+              inset 0 -2px 4px rgb(0 0 0 / 32%),
+              0 5px 14px rgb(3 30 21 / 28%) !important;
+  text-shadow: 0 1px 1px rgb(0 0 0 / 22%);
+}
+.nutrivida-app button svg,
+.nutrivida-app a.btn-metallic-3d svg,
+.nutrivida-app .hero-actions a svg,
+.nutrivida-app .fixed.bottom-0 a svg,
+.nutrivida-app .header-cta svg {
+  color: #fff !important;
+  stroke: currentColor;
+}
+.nutrivida-app button:hover:not(:disabled),
+.nutrivida-app a.btn-metallic-3d:hover,
+.nutrivida-app .hero-actions a:hover,
+.nutrivida-app .fixed.bottom-0 a:hover,
+.nutrivida-app .header-cta:hover {
+  color: #fff !important;
+  background-image: linear-gradient(145deg, #438765 0%, #216449 38%, #104631 72%, #0a3326 100%) !important;
+  border-color: #a4c7b1 !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 34%),
+              0 8px 20px rgb(3 30 21 / 36%),
+              0 0 0 2px rgb(76 139 105 / 15%) !important;
+}
+.nutrivida-app button:active:not(:disabled),
+.nutrivida-app a.btn-metallic-3d:active,
+.nutrivida-app .hero-actions a:active,
+.nutrivida-app .fixed.bottom-0 a:active,
+.nutrivida-app .header-cta:active {
+  transform: translateY(1px) scale(.985);
+}
+.nutrivida-app button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
