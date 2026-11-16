@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type MouseEvent } from 'react';
 import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,7 +7,7 @@ import { buildWhatsAppUrl } from '@/data/catalog';
 const LINKS = [{ href: '#servicos', label: 'Serviços' }, { href: '#diferenciais', label: 'Método' }, { href: '#processo', label: 'Atendimento' }, { href: '#contato', label: 'Contato' }];
 export function Header() {
   const [open, setOpen] = useState(false);
-  const handleSectionNavigation = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleSectionNavigation = (event: MouseEvent<HTMLAnchorElement>) => {
     const href = event.currentTarget.getAttribute('href');
     if (!href?.startsWith('#')) return;
     const targetId = href.slice(1);
