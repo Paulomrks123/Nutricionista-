@@ -15,14 +15,6 @@ export function Header() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [open]);
-  const navigateToSection = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    event.preventDefault();
-    setOpen(false);
-    const target = document.getElementById(href.slice(1));
-    if (!target) return;
-    window.history.pushState(null, '', href);
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 260, damping: 32 });
   return <header className="clinic-header"><div className="header-inner">
@@ -31,6 +23,6 @@ export function Header() {
     <Button asChild variant="metallic" className="header-cta"><a href={buildWhatsAppUrl()} target="_blank" rel="noopener noreferrer">Agendar<ArrowUpRight /></a></Button>
     <button type="button" className="mobile-menu-button" onClick={() => setOpen((current) => !current)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={open ? 'Fechar menu' : 'Abrir menu'}>{open ? <X /> : <Menu />}</button>
   </div><motion.div className="scroll-progress" style={{ scaleX }} />
-  <AnimatePresence>{open && <motion.nav id="mobile-navigation" aria-label="Menu móvel" className="mobile-nav" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}><div className="mobile-nav-inner">{LINKS.map(link => <a key={link.href} href={link.href} onClick={(event) => navigateToSection(event, link.href)}>{link.label}<ArrowUpRight size={16} /></a>)}</div></motion.nav>}</AnimatePresence>
+  <AnimatePresence>{open && <motion.nav id="mobile-navigation" aria-label="Menu móvel" className="mobile-nav" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}><div className="mobile-nav-inner">{LINKS.map(link => <a key={link.href} href={link.href} onClick={() => setOpen(false)}>{link.label}<ArrowUpRight size={16} /></a>)}</div></motion.nav>}</AnimatePresence>
   </header>;
 }
