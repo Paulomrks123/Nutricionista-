@@ -302,3 +302,45 @@ iframe[src*="lovable.dev"] {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+
+/* Ajuste sutil de escala e respiro do layout geral */
+@media (min-width: 768px) {
+  .nutrivida-app main > section:not(.clinic-hero) > div,
+  .nutrivida-app footer > div {
+    max-width: 1360px;
+    padding-inline: clamp(28px, 3vw, 48px);
+  }
+  .header-inner,
+  .hero-content {
+    max-width: 1450px;
+  }
+  .nutrivida-app h2 {
+    font-size: 48px;
+  }
+  .clinic-hero h1 {
+    font-size: 92px;
+  }
+  .service-card h3 {
+    font-size: 24px;
+  }
+  .cine-marquee-track > span {
+    font-size: 27px;
+  }
+}
+@media (max-width: 767px) {
+  .nutrivida-app h2 {
+    font-size: 38px;
+  }
+  .clinic-hero h1 {
+    font-size: 68px;
+  }
+}
+@media (max-width: 359px) {
+  .nutrivida-app h2 {
+    font-size: 32px;
+  }
+  .clinic-hero h1 {
+    font-size: 56px;
+  }
+}
