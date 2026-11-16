@@ -818,3 +818,82 @@ iframe[src*="lovable.dev"] {
   opacity: .55;
   cursor: not-allowed;
 }
+
+
+/* SISTEMA TIPOGRÁFICO UNIFICADO — MOBILE (320px a 767px) */
+@media (max-width: 767px) {
+  html {
+    font-size: clamp(16px, 4.25vw, 18px);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  .nutrivida-app {
+    font-size: 1rem;
+  }
+  .nutrivida-app :is(p, li, label, input, textarea, select) {
+    font-size: 1rem !important;
+    line-height: 1.7;
+  }
+  .nutrivida-app p[class*="text-primary"],
+  .nutrivida-app .hero-eyebrow,
+  .nutrivida-app .hero-scroll,
+  .nutrivida-app .service-card [class*="text-xs"],
+  .nutrivida-app .service-card [class*="text-sm"] {
+    font-size: .82rem !important;
+    line-height: 1.5;
+  }
+  .nutrivida-app h2 {
+    font-size: clamp(2.15rem, 7.6vw, 2.65rem) !important;
+    line-height: 1.12;
+  }
+  .nutrivida-app h3,
+  .nutrivida-app .service-card h3 {
+    font-size: clamp(1.45rem, 5.2vw, 1.7rem) !important;
+    line-height: 1.25;
+  }
+  .clinic-hero h1 {
+    font-size: clamp(3.35rem, 11.5vw, 4.35rem) !important;
+    line-height: 1;
+  }
+  .clinic-hero h1 > span {
+    font-size: clamp(1.95rem, 7vw, 2.6rem) !important;
+    line-height: 1.12;
+  }
+  .hero-description {
+    font-size: clamp(1rem, 4.2vw, 1.1rem) !important;
+    line-height: 1.7;
+  }
+  .nutrivida-app :is(button, .btn-metallic-3d, .hero-actions a, .fixed.bottom-0 a) {
+    font-size: .94rem;
+    min-height: 48px;
+  }
+  .nutrivida-app main > section:not(.clinic-hero) {
+    padding-block: clamp(3.25rem, 9vw, 4.25rem);
+  }
+  .nutrivida-app main > section:not(.clinic-hero) > div,
+  .nutrivida-app footer > div {
+    padding-inline: clamp(18px, 5.2vw, 26px);
+  }
+  .header-inner {
+    min-height: 72px;
+    padding-block: 12px;
+  }
+  .mobile-nav a {
+    font-size: 1rem;
+    min-height: 58px;
+  }
+}
+@media (max-width: 380px) {
+  .clinic-hero h1 {
+    font-size: clamp(3rem, 11.5vw, 3.45rem) !important;
+  }
+  .clinic-hero h1 > span {
+    font-size: clamp(1.75rem, 6.8vw, 2.05rem) !important;
+  }
+  .nutrivida-app h2 {
+    font-size: clamp(2rem, 7.5vw, 2.25rem) !important;
+  }
+  .nutrivida-app :is(p, li, label, input, textarea, select) {
+    font-size: .96rem !important;
+  }
+}
