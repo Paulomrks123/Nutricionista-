@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,14 @@ import { buildWhatsAppUrl } from '@/data/catalog';
 const LINKS = [{ href: '#servicos', label: 'Serviços' }, { href: '#diferenciais', label: 'Método' }, { href: '#processo', label: 'Atendimento' }, { href: '#contato', label: 'Contato' }];
 export function Header() {
   const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [open]);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 260, damping: 32 });
   return <header className="clinic-header"><div className="header-inner">
