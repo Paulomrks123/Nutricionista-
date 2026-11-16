@@ -75,19 +75,13 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
-    // Replace these placeholders with the app's name and description when first building the app.
-    // Each content route, / included, must still set its own head(). Never add og:image or
-    // twitter:image here: every page without its own would inherit the root's preview image.
+    // Page-specific social preview metadata is defined by each route.
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Nutrivida Nutrição e Massoterapia" },
       { name: "description", content: "Nutrição clínica e massoterapia terapêutica." },
-            { property: "og:title", content: "Nutrivida" },
-      { property: "og:description", content: "Nutrição clínica e massoterapia terapêutica." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-          ],
+    ],
     links: [
       {
         rel: "stylesheet",
