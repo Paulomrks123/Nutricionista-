@@ -525,7 +525,5 @@ iframe[src*="lovable.dev"] {
     border-bottom: 1px solid var(--border);
     cursor: pointer;
   }
-  .nutrivida-app main section[id] {
-    scroll-margin-top: 88px;
-  }
+  /* O html já reserva 100px via scroll-padding-top; não somar outra margem às âncoras. */
 }
