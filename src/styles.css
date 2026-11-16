@@ -897,3 +897,52 @@ iframe[src*="lovable.dev"] {
     font-size: .96rem !important;
   }
 }
+
+
+/* CARDS VERDES: CONTRASTE E LEITURA REFORÇADOS */
+.nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) {
+  color: #f7fbf8 !important;
+}
+.nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) :is(h2, h3, h4, strong) {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 28%);
+}
+.nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) :is(p, li, label, span:not(.text-primary), small) {
+  color: #f0f7f2 !important;
+}
+.nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) :is([class*="text-muted"], [class*="text-secondary"], .text-white\/60, .text-white\/70, .opacity-60, .opacity-70) {
+  color: #e0eee5 !important;
+  opacity: 1 !important;
+}
+.nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) a {
+  color: #fff !important;
+  text-decoration-color: #d8b76a;
+}
+.nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) :is(svg) {
+  color: #e6c77c;
+}
+@media (min-width: 768px) {
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) p,
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) li {
+    font-size: 1rem !important;
+    line-height: 1.75 !important;
+  }
+}
+@media (max-width: 767px) {
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) p,
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) li,
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) label {
+    font-size: 1.05rem !important;
+    line-height: 1.75 !important;
+  }
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) :is(h3, h4) {
+    font-size: clamp(1.45rem, 5.4vw, 1.75rem) !important;
+    line-height: 1.25 !important;
+  }
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) small,
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) [class*="text-xs"],
+  .nutrivida-app :is(.service-card, .spotlight-card, .process-grid button) [class*="text-sm"] {
+    font-size: .9rem !important;
+    line-height: 1.55 !important;
+  }
+}
